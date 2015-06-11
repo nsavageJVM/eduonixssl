@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project  basedir=".">
+
+    <property name="stage" location="${basedir}/stage"/>
+
+    <property name="uberJar" location="PlayServer/target/scala-2.10/eduonixssl_2.10-1.0-one-jar.jar"/>
+
+
+    <target name="clean"  description="clean up" >
+        <delete includeemptydirs="true">
+            <fileset dir="stage" includes="**/*"/>
+        </delete>
+    </target>
+
+    <!--  copy all the runtinme artifacts that support executable jar to be iped into a bundle to deploy -->
+    <target name="copybuildartifacts"  depends="clean" description="Copies the runtime artifacts to the build flow.">
+
+        <copy file="${uberJar}"  tofile="stage/eduonixssl.jar"  ></copy>
+
+    </target>
+
+</project>
