@@ -1,0 +1,15 @@
+logs
+PlayServer/project/project
+PlayServer/project/target
+target
+.history
+RUNNING_PID
+PlayServer/.settings
+mycert.cer
+.idea/workspace.xml
+.idea/
+generated.keystore
+stage
+screens
+*.iml
+
