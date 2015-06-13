@@ -1,0 +1,1 @@
+this directory is a default loation for the java class loader in maven projects
