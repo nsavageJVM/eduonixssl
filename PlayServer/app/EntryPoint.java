@@ -26,17 +26,17 @@ public class EntryPoint {
         try {
             System.setProperty("http.port", "9001");
             System.setProperty("https.port", "9443");
-            File file = new File("generated.keystore");
+            File file = new File("keystore.jks");
             if(!file.exists()){
-                InputStream is = EntryPoint.class.getResourceAsStream("generated.keystore");
-                File keystore = new File("generated.keystore");
+                InputStream is = EntryPoint.class.getResourceAsStream("keystore.jks");
+                File keystore = new File("keystore.jks");
                 Files.copy(is, keystore.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 Logger.info("Keystore does not exist locally. Copying into local directory.");
             }
             else{
                 Logger.info("Keystore exists locally. Using local keystore.");
             }
-            System.setProperty("https.keyStore", "generated.keystore");
+            System.setProperty("https.keyStore", "keystore.jks");
             // see run.sh
             System.setProperty("https.keyStorePassword", "replacethis");
             Option<NettyServer> serverOption = NettyServer.createServer(new File(""));

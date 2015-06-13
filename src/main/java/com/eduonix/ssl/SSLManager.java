@@ -42,7 +42,7 @@ import java.security.cert.X509Certificate;
 public class SSLManager {
 
     private CloseableHttpClient client;
-    protected static final String HOST_NAME = "host_name_or_ip";
+    protected static final String HOST_NAME = "localhost";
     protected static final int HOST_PORT = 9443;
     public static final String BASE_URL = "https://" + HOST_NAME + ":" + HOST_PORT;
     protected static final String SFTP_HOST = HOST_NAME;
@@ -54,11 +54,7 @@ public class SSLManager {
 
         try {
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
-            //ClassLoader classLoader =
-            //File file = new File(classLoader.getResource("mycert.cer").getFile());
-            //InputStream caInput = new BufferedInputStream(new FileInputStream("C:\\Users\\User\\Documents\\KlearKapture\\KlearServerClient\\mycert.cer"));
-            InputStream caInput = SSLManager.class.getClassLoader().getResourceAsStream("mycert.cer");//new BufferedInputStream(new FileInputStream(file));
-
+            InputStream caInput = SSLManager.class.getClassLoader().getResourceAsStream("mycert.cer");
             Certificate ca = cf.generateCertificate(caInput);
             log.debug("ca=" + ((X509Certificate) ca).getSubjectDN());
 
@@ -131,9 +127,9 @@ public class SSLManager {
 
     }
 
-    private String doGet(String url) throws  Exception {
+    public String doGet( ) throws  Exception {
 
-        HttpGet get = new HttpGet(url);
+        HttpGet get = new HttpGet(BASE_URL);
 
 
         CloseableHttpResponse closeableHttpResponse = null;
