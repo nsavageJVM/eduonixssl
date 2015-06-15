@@ -13,8 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
 /**
- * A MainClass wrapper for running the Play Server with a System tray and the ability to
- * configure system properties from here, such as keystore, etc.
+ * EntryPoint for the Play Server
  */
 public class EntryPoint {
 
@@ -34,7 +33,7 @@ public class EntryPoint {
                 Logger.info("Keystore does not exist locally. Copying into local directory.");
             }
             else{
-                Logger.info("Keystore exists locally. Using local keystore.");
+                Logger.info("Keystore exists locally.");
             }
             System.setProperty("https.keyStore", "keystore.jks");
             // see run.sh
