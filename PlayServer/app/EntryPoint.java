@@ -36,7 +36,6 @@ public class EntryPoint {
                 Logger.info("Keystore exists locally.");
             }
             System.setProperty("https.keyStore", "keystore.jks");
-            // see run.sh
             System.setProperty("https.keyStorePassword", "replacethis");
             Option<NettyServer> serverOption = NettyServer.createServer(new File(""));
             server = serverOption.get();

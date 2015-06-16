@@ -1,6 +1,5 @@
-# Under Construction
 
-## Tutorial code for ssl configuration
+## Tutorial code Developing Secure  Applications Part 1  Secure Socket Layer (SSL)
 
 ### Build and run play server
      `cd PlayServer
